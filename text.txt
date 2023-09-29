@@ -1,0 +1,4 @@
+Color pallette
+
+- Navbar #116A7B
+- turuncu [#fdb44b]
