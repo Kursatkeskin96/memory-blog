@@ -13,6 +13,7 @@ export async function fetchBlogs(){
 export default async function Blog() {
   const blogs = await fetchBlogs()
 
+
   return (
     <>
     <div className=''>

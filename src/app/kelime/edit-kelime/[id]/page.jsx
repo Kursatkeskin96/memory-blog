@@ -71,18 +71,23 @@ const Edit = (ctx) => {
     }
 
     return (
-        <div>
-            <div>
-                <h2>Edit Word</h2>
-                <form onSubmit={handleSubmit}>
-                    <input value={kelime} type="text" placeholder='Title...' onChange={(e) => setKelime(e.target.value)} />
-                    <input value={desc} placeholder='Description...' onChange={(e) => setDesc(e.target.value)} />
-                    <button>Edit</button>
-                    <Link href={'/kelime'}><button>Cancel</button></Link>
+
+            <div className='h-screen'>
+            <div className='lg:w-[50%] w-[90%] shadow-lg h-fit mx-auto my-16 bg-[#F1F0E8] pt-5'>
+                <h2 className='text-lg font-bold text-center mb-5'>Edit Word</h2>
+                <form className='' onSubmit={handleSubmit}>
+                    <div className='flex flex-col justify-center items-center'>
+                    <input className=' w-[60%] mb-6 mt-4 rounded-md text-center' value={kelime} type="text" placeholder='Title...' onChange={(e) => setKelime(e.target.value)} />
+                    <input className=' w-[60%] rounded-md text-center mb-10' value={desc} placeholder='Description...' onChange={(e) => setDesc(e.target.value)} />
+                    </div>
+                    <div className='w-[60%] flex justify-between mx-auto items-center pb-6 '>
+                    <button className='bg-[#96B6C5] border-[1px] border-white text-white p-1 w-20 rounded-md'>Edit</button>
+                    <Link href={'/kelime'}><button className='bg-red-700 text-white border-[1px] border-white p-1 rounded-md w-20'>Cancel</button></Link>
+                    </div>
                 </form>
+                </div>
             </div>
-            <ToastContainer />
-        </div>
+
     )
 }
 

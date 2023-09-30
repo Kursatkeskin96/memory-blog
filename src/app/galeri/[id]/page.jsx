@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/navigation'
 import { AiOutlineFileImage } from 'react-icons/ai'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const EditGallery = (ctx) => {
     const CLOUD_NAME = 'dqtnjtoby'
@@ -127,22 +128,24 @@ const EditGallery = (ctx) => {
 
 
     return (
-        <div>
-            <div>
-                <h2>Edit Photo</h2>
-                <form onSubmit={handleSubmit}>
-                <Image src={imageUrl} width={200} height={200} alt="image" />
-                    <input value={title} type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
-                    <label htmlFor='image'>
-                        Upload Image <AiOutlineFileImage />
-                    </label>
-                    <input id='image' type="file" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
-                    <button>Edit</button>
-                </form>
-                <button className='bg-red-500 text-white p-1' onClick={handleDelete}>Delete</button>
-            </div>
-            <ToastContainer />
+<div>
+<div className='lg:w-[30%] w-[90%] shadow-lg h-fit mx-auto my-16 bg-[#F4F2DE] pt-5'>
+    <h2 className='text-lg font-bold text-center mb-5'>Edit Photo</h2>
+    <Image className='h-60 w-44 rounded-md mx-auto' src={imageUrl} width={200} height={200} alt='images' />
+    <form className='' onSubmit={handleSubmit}>
+        <div className='flex flex-col justify-center items-center'>
+        <input className='mt-8 mb-4' value={title} type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
+        <label className='border-[1px] border-white cursor-pointer bg-[#C7D3D1] text-white w-[40%] text-center mb-6 p-1 rounded-md' htmlFor='image'>Upload Image </label>
+        <input id='image' type="file" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
         </div>
+        <div className='w-[60%] flex justify-between mx-auto items-center pb-6 '>
+        <button className='bg-white border-[1px] border-black text-black p-1 w-20 rounded-md'>Edit</button>
+        <Link href={'/galeri'}><button className='bg-red-700 text-white border-[1px] border-white p-1 rounded-md w-20'>Cancel</button></Link>
+        </div>
+    </form>
+    </div>
+</div>
+
     )
 }
 

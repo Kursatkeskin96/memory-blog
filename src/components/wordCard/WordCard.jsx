@@ -30,7 +30,7 @@ const BlogCard = ({ word: { kelime, desc, authorId, _id, createdAt } }) => {
         </div>
         {authorId?._id.toString() === session?.user?._id.toString() && (
     <div className='bg-slate-100 flex justify-center items-center text-center gap-10 mt-2 '>
-      <Link href={`/kelime/${_id}`}><button className=' border-black border-[1px] p-1 w-[200px] rounded-md'>Edit</button></Link>
+      <Link href={`/kelime/edit-kelime/${_id}`}><button className=' border-black border-[1px] p-1 w-[200px] rounded-md'>Edit</button></Link>
     </div>
   )}
       </div>

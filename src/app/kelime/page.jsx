@@ -1,8 +1,10 @@
+
 import WordCard from '@/components/wordCard/WordCard'
 import React from 'react'
 import Image from 'next/image'
 import books from '@/assets/images/books.png'
 import Link from 'next/link'
+
 
 export async function fetchWords(){
   const res = await fetch('http://localhost:3000/api/kelime', {cache: 'no-store'})
@@ -12,6 +14,7 @@ export async function fetchWords(){
 
 export default async function Kelime() {
   const words = await fetchWords()
+
 
   return (
       <div className=''>

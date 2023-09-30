@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { BsFillSuitHeartFill } from 'react-icons/bs';
 
-function Footer() {
+export default function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <div className='flex flex-row text-white bg-[#116A7B] justify-center items-center text-center mx-auto'>
+      <div>Made with ❤️ by Dagi</div>
+    </div>
+  ); 
 }
-
-export default Footer
+ 
