@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 
 export async function fetchWords(){
-  const res = await fetch('/api/kelime', {cache: 'no-store'})
+  const res = await fetch('https://gunesozdemir.vercel.app/api/kelime', {cache: 'no-store'})
   return res.json()
 }
 

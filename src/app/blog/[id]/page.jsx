@@ -16,7 +16,7 @@ const router = useRouter()
 
 useEffect(() => {
     async function fetchBlog(){
-    const res = await fetch(`/api/blog/${ctx.params.id}`, {cache: 'no-store'})
+    const res = await fetch(`https://gunesozdemir.vercel.app/api/blog/${ctx.params.id}`, {cache: 'no-store'})
     const blog = await res.json()
 
     setBlogDetails(blog)
@@ -29,7 +29,7 @@ const handleDelete = async() => {
         const confirmModal = confirm('Olum bah emin misin?')
 
         if(confirmModal){
-            const res = await fetch(`/api/blog/${ctx.params.id}`, {
+            const res = await fetch(`https://gunesozdemir.vercel.app/api/blog/${ctx.params.id}`, {
                 headers: {
                     'Authorization': `Bearer ${session?.user?.accessToken}`
                 },

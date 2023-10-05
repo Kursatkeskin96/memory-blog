@@ -22,7 +22,7 @@ export default function Page() {
 
   useEffect(() => {
     const fetchHome = async () => {
-      const response = await fetch('/api/home');
+      const response = await fetch('https://gunesozdemir.vercel.app/api/home');
       const data = await response.json();
       setHome(data);
     };

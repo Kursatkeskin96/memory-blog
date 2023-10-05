@@ -46,7 +46,7 @@ function Panel() {
     }
   
     try {
-      const res = await fetch('/api/register', {
+      const res = await fetch('https://gunesozdemir.vercel.app/api/register', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -79,7 +79,7 @@ function Panel() {
 
     try {
       
-      const res = await fetch(`/api/kelime`, {
+      const res = await fetch(`https://gunesozdemir.vercel.app/api/kelime`, {
         headers: {
            'Content-Type': 'application/json',
            'Authorization': `Bearer ${session?.user?.accessToken}` 
@@ -111,7 +111,7 @@ const handleGallery = async (e) => {
   try {
     const imageUrl = await uploadImage()
     
-    const res = await fetch(`/api/gallery`, {
+    const res = await fetch(`https://gunesozdemir.vercel.app/api/gallery`, {
       headers: {
          'Content-Type': 'application/json',
          'Authorization': `Bearer ${session?.user?.accessToken}` 

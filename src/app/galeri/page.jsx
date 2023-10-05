@@ -5,7 +5,7 @@ import Image from 'next/image'
 import galeri from '@/assets/Images/galeri.jpg'
 
 export async function fetchGalleries(){
-  const res = await fetch('/api/gallery', {cache: 'no-store'})
+  const res = await fetch('https://gunesozdemir.vercel.app/api/gallery', {cache: 'no-store'})
   return res.json()
 }
 
