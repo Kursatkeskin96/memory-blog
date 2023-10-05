@@ -1,17 +1,44 @@
+'use client'
 import BlogCard from '@/components/blogCard/BlogCard'
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import blog from '@/assets/Images/blog1.jpg'
 import Link from 'next/link'
 
 export async function fetchBlogs(){
-  const res = await fetch('https://gunesozdemir.vercel.app/api/blog', {cache: 'no-store'})
-  return res.json()
+
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+
+  try {
+    const res = await fetch(`${api}/api/blog`, {cache: 'no-store'});
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await res.json();
+  } catch (error) {
+    console.error('Error fetching galleries:', error);
+    return [];
+  }
 }
 
 
-export default async function Blog() {
-  const blogs = await fetchBlogs()
+export default function Blog() {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchBlogs();
+      setBlogs(data);
+    };
+
+    fetchData();
+  }, []);
 
 
   return (

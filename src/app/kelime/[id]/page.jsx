@@ -16,7 +16,14 @@ const router = useRouter()
 
 useEffect(() => {
     async function fetchWords(){
-    const res = await fetch(`https://gunesozdemir.vercel.app/api/kelime/${ctx.params.id}`, {cache: 'no-store'})
+        if (typeof window !== 'undefined') {
+            var currentURL = window.location.href;
+            var urlParts = currentURL.split("/");
+            var domain = urlParts[1];
+          }
+        
+          const api = domain;
+    const res = await fetch(`${api}/api/kelime/${ctx.params.id}`, {cache: 'no-store'})
     const word = await res.json()
 
     setDetails(word)
@@ -29,7 +36,7 @@ const handleDelete = async() => {
         const confirmModal = confirm('Olum bah emin misin?')
 
         if(confirmModal){
-            const res = await fetch(`https://gunesozdemir.vercel.app/api/kelime/${ctx.params.id}`, {
+            const res = await fetch(`${api}/api/kelime/${ctx.params.id}`, {
                 headers: {
                     'Authorization': `Bearer ${session?.user?.accessToken}`
                 },

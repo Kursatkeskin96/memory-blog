@@ -12,6 +12,14 @@ const CreateBlog = () => {
     const CLOUD_NAME = 'dqtnjtoby'
     const UPLOAD_PRESET = 'gunes_blog'
 
+    if (typeof window !== 'undefined') {
+        var currentURL = window.location.href;
+        var urlParts = currentURL.split("/");
+        var domain = urlParts[1];
+      }
+    
+      const api = domain
+
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
     const [photo, setPhoto] = useState('')
@@ -41,7 +49,7 @@ const CreateBlog = () => {
         try {
           const imageUrl = await uploadImage()
           
-          const res = await fetch(`https://gunesozdemir.vercel.app/api/blog`, {
+          const res = await fetch(`${api}api/blog`, {
             headers: {
                'Content-Type': 'application/json',
                'Authorization': `Bearer ${session?.user?.accessToken}` 

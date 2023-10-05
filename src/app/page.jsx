@@ -20,9 +20,17 @@ export default function Page() {
     })();
   }, []); 
 
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+
   useEffect(() => {
     const fetchHome = async () => {
-      const response = await fetch('https://gunesozdemir.vercel.app/api/home');
+      const response = await fetch(`${api}api/home`);
       const data = await response.json();
       setHome(data);
     };

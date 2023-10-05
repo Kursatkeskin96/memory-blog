@@ -17,9 +17,17 @@ const Edit = (ctx) => {
     const { data: session, status } = useSession()
     const router = useRouter()
 
+    if (typeof window !== 'undefined') {
+        var currentURL = window.location.href;
+        var urlParts = currentURL.split("/");
+        var domain = urlParts[1];
+      }
+    
+      const api = domain
+
     useEffect(() => {
         async function fetchBlog() {
-            const res = await fetch(`https://gunesozdemir.vercel.app/api/blog/${ctx.params.id}`)
+            const res = await fetch(`${api}/api/blog/${ctx.params.id}`)
 
             const blog = await res.json()
 
@@ -62,7 +70,7 @@ const Edit = (ctx) => {
                 body.imageUrl = imageUrl
             }
             
-            const res = await fetch(`https://gunesozdemir.vercel.app/api/blog/${ctx.params.id}`, {
+            const res = await fetch(`${api}/api/blog/${ctx.params.id}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": `Bearer ${session?.user?.accessToken}`

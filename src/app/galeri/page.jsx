@@ -1,17 +1,42 @@
-
-import GalleryCard from '@/components/galleryCard/GalleryCard'
-import React from 'react'
-import Image from 'next/image'
-import galeri from '@/assets/Images/galeri.jpg'
+'use client'
+import GalleryCard from '@/components/galleryCard/GalleryCard';
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import galeri from '@/assets/Images/galeri.jpg';
 
 export async function fetchGalleries(){
-  const res = await fetch('https://gunesozdemir.vercel.app/api/gallery', {cache: 'no-store'})
-  return res.json()
+
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+
+  try {
+    const res = await fetch(`${api}/api/gallery`, {cache: 'no-store'});
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await res.json();
+  } catch (error) {
+    console.error('Error fetching galleries:', error);
+    return [];
+  }
 }
 
-export default async function Galeri() {
-  const galleries = await fetchGalleries()
+export default function Galeri() {
+  const [galleries, setGalleries] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchGalleries();
+      setGalleries(data);
+    };
+
+    fetchData();
+  }, []);
   return (
     <div className=''>
     <div className='bg-[#C7D3D1] lg:h-80 md:h-80 h-screen w-full grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2'>

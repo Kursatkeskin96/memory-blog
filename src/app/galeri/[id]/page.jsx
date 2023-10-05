@@ -19,9 +19,17 @@ const EditGallery = (ctx) => {
     const { data: session, status } = useSession()
     const router = useRouter()
 
+    if (typeof window !== 'undefined') {
+        var currentURL = window.location.href;
+        var urlParts = currentURL.split("/");
+        var domain = urlParts[1];
+      }
+    
+      const api = domain;
+
     useEffect(() => {
         async function fetchGallery() {
-            const res = await fetch(`https://gunesozdemir.vercel.app/api/gallery/${ctx.params.id}`)
+            const res = await fetch(`${api}/api/gallery/${ctx.params.id}`)
 
             const gallery = await res.json()
 
@@ -63,7 +71,7 @@ const EditGallery = (ctx) => {
                 body.imageUrl = imageUrl
             }
             
-            const res = await fetch(`https://gunesozdemir.vercel.app/api/gallery/${ctx.params.id}`, {
+            const res = await fetch(`${api}/api/gallery/${ctx.params.id}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": `Bearer ${session?.user?.accessToken}`
@@ -108,9 +116,17 @@ const EditGallery = (ctx) => {
     const handleDelete = async(ctx) => {
         try {
             const confirmModal = confirm('Olum bah emin misin?')
+            
     
             if(confirmModal){
-                const res = await fetch(`https://gunesozdemir.vercel.app/api/gallery/${ctx.params.id}`, {
+                if (typeof window !== 'undefined') {
+                    var currentURL = window.location.href;
+                    var urlParts = currentURL.split("/");
+                    var domain = urlParts[1];
+                  }
+                
+                  const api = domain;
+                const res = await fetch(`${api}/api/gallery/${ctx.params.id}`, {
                     headers: {
                         'Authorization': `Bearer ${session?.user?.accessToken}`
                     },

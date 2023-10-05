@@ -1,19 +1,36 @@
-
+'use client'
 import WordCard from '@/components/wordCard/WordCard'
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import books from '@/assets/Images/books.png'
 import Link from 'next/link'
 
 
 export async function fetchWords(){
-  const res = await fetch('https://gunesozdemir.vercel.app/api/kelime', {cache: 'no-store'})
+
+  if (typeof window !== 'undefined') {
+    var currentURL = window.location.href;
+    var urlParts = currentURL.split("/");
+    var domain = urlParts[1];
+  }
+
+  const api = domain;
+  const res = await fetch(`${api}/api/kelime`, {cache: 'no-store'})
   return res.json()
 }
 
 
-export default async function Kelime() {
-  const words = await fetchWords()
+export default function Kelime() {
+  const [words, setWords] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchWords();
+      setWords(data);
+    };
+
+    fetchData();
+  }, []);
 
 
   return (

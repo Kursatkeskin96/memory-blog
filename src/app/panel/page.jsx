@@ -46,7 +46,14 @@ function Panel() {
     }
   
     try {
-      const res = await fetch('https://gunesozdemir.vercel.app/api/register', {
+      if (typeof window !== 'undefined') {
+        var currentURL = window.location.href;
+        var urlParts = currentURL.split("/");
+        var domain = urlParts[1];
+      }
+    
+      const api = domain;
+      const res = await fetch(`${api}/api/register`, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -78,8 +85,14 @@ function Panel() {
     }
 
     try {
-      
-      const res = await fetch(`https://gunesozdemir.vercel.app/api/kelime`, {
+      if (typeof window !== 'undefined') {
+        var currentURL = window.location.href;
+        var urlParts = currentURL.split("/");
+        var domain = urlParts[1];
+      }
+    
+      const api = domain;
+      const res = await fetch(`${api}/api/kelime`, {
         headers: {
            'Content-Type': 'application/json',
            'Authorization': `Bearer ${session?.user?.accessToken}` 
@@ -110,8 +123,15 @@ const handleGallery = async (e) => {
 
   try {
     const imageUrl = await uploadImage()
+    if (typeof window !== 'undefined') {
+      var currentURL = window.location.href;
+      var urlParts = currentURL.split("/");
+      var domain = urlParts[1];
+    }
+  
+    const api = domain;
     
-    const res = await fetch(`https://gunesozdemir.vercel.app/api/gallery`, {
+    const res = await fetch(`${api}/api/gallery`, {
       headers: {
          'Content-Type': 'application/json',
          'Authorization': `Bearer ${session?.user?.accessToken}` 

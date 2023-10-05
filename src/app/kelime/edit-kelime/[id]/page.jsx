@@ -15,7 +15,14 @@ const Edit = (ctx) => {
 
     useEffect(() => {
         async function fetchWord() {
-            const res = await fetch(`https://gunesozdemir.vercel.app/api/kelime/${ctx.params.id}`)
+            if (typeof window !== 'undefined') {
+                var currentURL = window.location.href;
+                var urlParts = currentURL.split("/");
+                var domain = urlParts[1];
+              }
+            
+              const api = domain;
+            const res = await fetch(`${api}/api/kelime/${ctx.params.id}`)
 
             const word = await res.json()
 
@@ -49,8 +56,15 @@ const Edit = (ctx) => {
                kelime, 
                 desc,
             }
+            if (typeof window !== 'undefined') {
+                var currentURL = window.location.href;
+                var urlParts = currentURL.split("/");
+                var domain = urlParts[1];
+              }
             
-            const res = await fetch(`https://gunesozdemir.vercel.app/api/kelime/${ctx.params.id}`, {
+              const api = domain;
+            
+            const res = await fetch(`${api}/api/kelime/${ctx.params.id}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": `Bearer ${session?.user?.accessToken}`
