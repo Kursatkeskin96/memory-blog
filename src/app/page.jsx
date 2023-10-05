@@ -6,7 +6,7 @@ import Gunes3 from '@/assets/Images/gunes3.jpeg'
 import Image from "next/image";
 
 
-export default function page() {
+export default function Page() {
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [home, setHome] = useState([]);
