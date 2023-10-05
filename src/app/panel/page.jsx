@@ -46,7 +46,7 @@ function Panel() {
     }
   
     try {
-      const res = await fetch('http://localhost:3000/api/register', {
+      const res = await fetch('/api/register', {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -79,7 +79,7 @@ function Panel() {
 
     try {
       
-      const res = await fetch(`http://localhost:3000/api/kelime`, {
+      const res = await fetch(`/api/kelime`, {
         headers: {
            'Content-Type': 'application/json',
            'Authorization': `Bearer ${session?.user?.accessToken}` 
@@ -111,7 +111,7 @@ const handleGallery = async (e) => {
   try {
     const imageUrl = await uploadImage()
     
-    const res = await fetch(`http://localhost:3000/api/gallery`, {
+    const res = await fetch(`/api/gallery`, {
       headers: {
          'Content-Type': 'application/json',
          'Authorization': `Bearer ${session?.user?.accessToken}` 

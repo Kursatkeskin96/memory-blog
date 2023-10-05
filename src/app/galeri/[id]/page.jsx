@@ -21,7 +21,7 @@ const EditGallery = (ctx) => {
 
     useEffect(() => {
         async function fetchGallery() {
-            const res = await fetch(`http://localhost:3000/api/gallery/${ctx.params.id}`)
+            const res = await fetch(`/api/gallery/${ctx.params.id}`)
 
             const gallery = await res.json()
 
@@ -63,7 +63,7 @@ const EditGallery = (ctx) => {
                 body.imageUrl = imageUrl
             }
             
-            const res = await fetch(`http://localhost:3000/api/gallery/${ctx.params.id}`, {
+            const res = await fetch(`/api/gallery/${ctx.params.id}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": `Bearer ${session?.user?.accessToken}`
@@ -110,7 +110,7 @@ const EditGallery = (ctx) => {
             const confirmModal = confirm('Olum bah emin misin?')
     
             if(confirmModal){
-                const res = await fetch(`http://localhost:3000/api/gallery/${ctx.params.id}`, {
+                const res = await fetch(`/api/gallery/${ctx.params.id}`, {
                     headers: {
                         'Authorization': `Bearer ${session?.user?.accessToken}`
                     },

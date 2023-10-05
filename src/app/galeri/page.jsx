@@ -5,7 +5,7 @@ import Image from 'next/image'
 import galeri from '@/assets/images/galeri.jpg'
 
 export async function fetchGalleries(){
-  const res = await fetch('http://localhost:3000/api/gallery', {cache: 'no-store'})
+  const res = await fetch('/api/gallery', {cache: 'no-store'})
   return res.json()
 }
 

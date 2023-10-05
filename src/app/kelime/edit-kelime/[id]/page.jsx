@@ -15,7 +15,7 @@ const Edit = (ctx) => {
 
     useEffect(() => {
         async function fetchWord() {
-            const res = await fetch(`http://localhost:3000/api/kelime/${ctx.params.id}`)
+            const res = await fetch(`/api/kelime/${ctx.params.id}`)
 
             const word = await res.json()
 
@@ -50,7 +50,7 @@ const Edit = (ctx) => {
                 desc,
             }
             
-            const res = await fetch(`http://localhost:3000/api/kelime/${ctx.params.id}`, {
+            const res = await fetch(`/api/kelime/${ctx.params.id}`, {
                 headers: {
                     "Content-Type": 'application/json',
                     "Authorization": `Bearer ${session?.user?.accessToken}`

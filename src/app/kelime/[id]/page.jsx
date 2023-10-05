@@ -16,7 +16,7 @@ const router = useRouter()
 
 useEffect(() => {
     async function fetchWords(){
-    const res = await fetch(`http://localhost:3000/api/kelime/${ctx.params.id}`, {cache: 'no-store'})
+    const res = await fetch(`/api/kelime/${ctx.params.id}`, {cache: 'no-store'})
     const word = await res.json()
 
     setDetails(word)
@@ -29,7 +29,7 @@ const handleDelete = async() => {
         const confirmModal = confirm('Olum bah emin misin?')
 
         if(confirmModal){
-            const res = await fetch(`http://localhost:3000/api/kelime/${ctx.params.id}`, {
+            const res = await fetch(`/api/kelime/${ctx.params.id}`, {
                 headers: {
                     'Authorization': `Bearer ${session?.user?.accessToken}`
                 },

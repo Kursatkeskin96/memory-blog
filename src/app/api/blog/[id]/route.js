@@ -77,4 +77,4 @@ export async function DELETE(req, ctx) {
 // blog -> [id] -> like -> route.js
 
 
-// http://localhost:3000/api/blog/someid/like
+// /api//blog/someid/like
