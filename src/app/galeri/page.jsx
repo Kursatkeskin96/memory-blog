@@ -2,7 +2,7 @@
 import GalleryCard from '@/components/galleryCard/GalleryCard'
 import React from 'react'
 import Image from 'next/image'
-import galeri from '@/assets/images/galeri.jpg'
+import galeri from '@/assets/Images/galeri.jpg'
 
 export async function fetchGalleries(){
   const res = await fetch('/api/gallery', {cache: 'no-store'})

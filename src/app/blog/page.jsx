@@ -1,7 +1,7 @@
 import BlogCard from '@/components/blogCard/BlogCard'
 import React from 'react'
 import Image from 'next/image'
-import blog from '@/assets/images/blog1.jpg'
+import blog from '@/assets/Images/blog1.jpg'
 import Link from 'next/link'
 
 export async function fetchBlogs(){

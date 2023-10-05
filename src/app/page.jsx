@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import Gunes1 from '@/assets/images/gunes1.jpeg'
-import Gunes3 from '@/assets/images/gunes3.jpeg'
+import Gunes1 from '@/assets/Images/gunes1.jpeg'
+import Gunes3 from '@/assets/Images/gunes3.jpeg'
 import Image from "next/image";
 
 

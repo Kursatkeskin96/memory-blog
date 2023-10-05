@@ -2,7 +2,7 @@
 import WordCard from '@/components/wordCard/WordCard'
 import React from 'react'
 import Image from 'next/image'
-import books from '@/assets/images/books.png'
+import books from '@/assets/Images/books.png'
 import Link from 'next/link'
 
 

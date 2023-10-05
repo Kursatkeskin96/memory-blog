@@ -7,7 +7,7 @@ import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { signIn } from 'next-auth/react'
-import gunes3 from '@/assets/images/gunes3.jpeg'
+import gunes3 from '@/assets/Images/gunes3.jpeg'
 
 const Login = () => {
     const [username, setUsername] = useState("")
