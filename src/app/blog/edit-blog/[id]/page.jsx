@@ -119,18 +119,18 @@ const Edit = (ctx) => {
     return (
         <div>
             <div className='lg:w-[50%] w-[90%] shadow-lg h-fit mx-auto my-16 bg-[#F1F0E8]'>
-                <h2 className='text-lg font-bold text-center'>Edit Post</h2>
+                <h2 className='text-lg font-bold text-center'>Blog Düzenle</h2>
                 <form className='' onSubmit={handleSubmit}>
                     <div className='flex flex-col justify-center items-center'>
-                    <input className='rounded-md  mt-6 mb-4 w-[70%] text-center' value={title} type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
-                    <textarea className='rounded-md  mt-6 mb-4 w-[70%] text-center h-96 resize-none' value={desc} placeholder='Description...' onChange={(e) => setDesc(e.target.value)} />
+                    <input className='rounded-md  mt-6 mb-4 w-[70%] text-center' value={title} type="text" placeholder='Başlık' onChange={(e) => setTitle(e.target.value)} />
+                    <textarea className='rounded-md  mt-6 mb-4 w-[70%] text-center h-96 resize-none' value={desc} placeholder='Mesajınız...' onChange={(e) => setDesc(e.target.value)} />
                     </div>
                     <div className='w-[70%] mx-auto flex justify-between items-center mt-4'>
                     <label className='mb-10 cursor-pointer bg-white rounded-md p-1 border-[1px] border-black' htmlFor='image'>
-                        Upload Image 
+                    Resim Yükle
                     </label>
                     <input id='image' type="file" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
-                    <button className='bg-[#96B6C5] border-[1px] border-white text-white p-1 w-20 mb-10 rounded-md'>Edit</button>
+                    <button className='bg-[#96B6C5] border-[1px] border-white text-white p-1 w-20 mb-10 rounded-md'>Kaydet</button>
                     </div>
                 </form>
             </div>

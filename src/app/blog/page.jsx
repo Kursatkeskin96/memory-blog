@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import blog from '@/assets/Images/blog1.jpg'
 import Link from 'next/link'
+import { redirect } from "next/navigation";
+import { useSession } from 'next-auth/react';
 
 export async function fetchBlogs(){
 
@@ -29,7 +31,10 @@ export async function fetchBlogs(){
 
 
 export default function Blog() {
+  const { data: session, status } = useSession();
   const [blogs, setBlogs] = useState([]);
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,9 +54,9 @@ export default function Blog() {
           <Image src={blog} width={300} alt='blog'/>
         </div>
         <div className='lg:ml-20 lg:mt-16 md:mt-16 text-center lg:text-left md:text-center mb-24'>
-          <h1 className='text-2xl font-bold'>Gunes'in Ani Defterine Hos Geldiniz</h1>
-          <p className='my-2'>Bu sayfada, Gunes'in ileride okuyacagi metinler yazabilir, istediginiz zaman duzenleyebilirsiniz.</p>
-          <p className=' text-sm'>Soz ucar, yazi kalir. Burada paylasilan her sey, Gunes'e unutulmaz hatira kalir.</p>
+          <h1 className='text-2xl font-bold'>Güneş'in Anı Defterine Hoş Geldiniz</h1>
+          <p className='my-2'>Bu sayfada, Güneş'in ileride okuyacağı metinler yazabilir, istediğiniz zaman düzenleyebilirsiniz.</p>
+          <p className=' text-sm'>Söz uçar, yazı kalır. Burada paylaşılan her şey, Güneş'e unutulmaz hatıra kalır.</p>
           <Link href={'/blog/create-blog'}>
           <button className='mt-4 uppercase bg-[#f59f26] w-40 p-1 text-white rounded-md'>Blog Yaz</button>
           </Link>

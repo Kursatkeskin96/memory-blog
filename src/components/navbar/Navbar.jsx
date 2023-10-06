@@ -28,16 +28,16 @@ const Nav = () => {
         {session?.user ? (
           <div className='flex ml-auto mr-5 gap-3 md:gap-5'>
             <div className="p-1 hover:border-b-2 border-[#fdb44b] ">
-              <Link href='/'>Home</Link>
+              <Link href='/'>Ana Sayfa</Link>
             </div>
             <div className="p-1 hover:border-b-2 border-[#fdb44b] ">
               <Link href='/blog'>Blog</Link>
             </div>
             <div className="p-1 hover:border-b-2 border-[#fdb44b] ">
-              <Link href='/kelime'>Words</Link>
+              <Link href='/kelime'>Kelime</Link>
             </div>
             <div className="p-1 hover:border-b-2 border-[#fdb44b] ">
-              <Link href='/galeri'>Galerry</Link>
+              <Link href='/galeri'>Galeri</Link>
             </div>
             {session?.user?.role === 'admin' ? (
             <div className="p-1 hover:border-b-2 border-[#fdb44b]">
@@ -46,7 +46,7 @@ const Nav = () => {
           ) : null}
             <div className="bg-[#f59f26] p-1 rounded-md">
             <button type='button' onClick={signOut} className='outline_btn'>
-            Logout
+            Çıkış Yap
             </button>
             </div>
           </div>
@@ -57,12 +57,12 @@ const Nav = () => {
                 <div key={provider.name} className="flex ml-auto">
                 <div className="mx-5 justify-center items-center hover:border-b-2 border-[#fdb44b]">
                   <Link href="/">
-                    Home
+                    Ana Sayfa
                   </Link>
                 </div>
                     <div className='mr-8 hover:border-b-2 border-[#fdb44b]'>
                     <button onClick={signIn} type='button'>
-                      Login
+                    Giriş Yap
                     </button>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ const Nav = () => {
                   href='/'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}>
-                 Home
+                 Ana Sayfa
                 </Link>
                 </div>
 
@@ -101,7 +101,7 @@ const Nav = () => {
                   href='/kelime'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}>
-                 Words
+                 Kelime
                 </Link>
                 </div>
                 
@@ -110,7 +110,7 @@ const Nav = () => {
                   href='/galeri'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}>
-                  Galerry
+                  Galeri
                 </Link>
                 </div>
                 {session?.user?.role === 'admin' ? (
@@ -127,7 +127,7 @@ const Nav = () => {
                   }}
                   className='dropdown_link'
                 >
-                  Logout
+                  Çıkış Yap
                 </button>
                 </div>
               </div>
@@ -142,7 +142,7 @@ const Nav = () => {
                 <Link
                   href='/'
                   onClick={() => setToggleDropdown(false)}>
-                 Home
+                 Ana Sayfa
                 </Link>
                 </div>
                 
@@ -154,7 +154,7 @@ const Nav = () => {
                     signIn(provider.id);
                   }}
                 >
-                  Login
+                  Giriş Yap
                 </button>
                 </div>
                 </div>

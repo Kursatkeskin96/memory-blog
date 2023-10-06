@@ -14,19 +14,7 @@ function Panel() {
   const router = useRouter();
 
 
-  useEffect(() => {
-    // Check if the session is still loading
-    if (status === 'loading') {
-      return; // Do nothing and wait for the session to load
-    }
-    if (!session) {
-      // Redirect the user to the login page if there's no session (user not logged in)
-      router.push('/login');
-    } else if (session.user.role !== 'admin') {
-      // Redirect the user to another page if they don't have the 'admin' role
-      router.push('/');
-    }
-  }, [session, status]); // Include session and status as dependencies
+
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')

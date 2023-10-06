@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import galeri from '@/assets/Images/galeri.jpg';
 
+
 export async function fetchGalleries(){
 
   if (typeof window !== 'undefined') {
@@ -29,6 +30,9 @@ export async function fetchGalleries(){
 export default function Galeri() {
   const [galleries, setGalleries] = useState([]);
 
+
+
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchGalleries();
@@ -44,8 +48,8 @@ export default function Galeri() {
         <Image src={galeri} width={200} alt='blog'/>
       </div>
       <div className='lg:ml-30 lg:mt-20 md:mt-16 text-center lg:text-left md:text-center mb-24 max-w-[85%]'>
-        <h1 className='text-2xl font-bold'>Gunes'in Galerisine Hos Geldiniz</h1>
-        <p className='my-2'>Bu sayfa, Gunes'in gelisimini gorebileceginiz gorseller ile dolu. Fotograf aciklamalarini gormek icin tek yapmaniz gereken mouseu fotografin uzerine getirmek veya fotografa tiklamak!</p>
+        <h1 className='text-2xl font-bold'>Güneş'in Galerisine Hoş Geldiniz</h1>
+        <p className='my-2'>Bu sayfa, Güneş'in gelişimini görebileceğiniz görseller ile dolu. Fotoğraf açıklamalarını görmek için tek yapmanız gereken mouse'u fotoğrafın üzerine getirmek veya fotoğrafa tıklamak!</p>
       </div>
     </div>
     <div className='pt-10 pb-20 h-full max-w-[80%] mx-auto mt-10 rounded-md shadow-lg mb-10 bg-[#F4F2DE]'>

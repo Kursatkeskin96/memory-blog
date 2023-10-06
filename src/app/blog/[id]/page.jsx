@@ -63,7 +63,7 @@ const handleDelete = async() => {
             <div className='text-2xl rounded-md text-white font-bold text-center bg-gradient-to-r from-[#f89e21] to-[#f8d199]'>{blogDetails?.title}</div>
             <div className='pt-8'>{blogDetails?.desc}</div>
             <div className='flex justify-between items-center mt- text-xs text-gray-400 pt-6'>
-            <div><span>Paylasan: </span>{blogDetails?.authorId?.username}</div>
+            <div><span>Paylaşan: </span>{blogDetails?.authorId?.username}</div>
             <div><span>Tarih: </span>{format(blogDetails?.createdAt)}</div>
             </div>
             {blogDetails?.authorId?._id.toString() === session?.user?._id.toString() && (
