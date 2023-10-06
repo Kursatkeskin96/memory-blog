@@ -39,7 +39,7 @@ export default function Kelime() {
              <div className='mix-blend-multiply mx-auto mt-14'>
           <Image src={books} width={300} alt='blog'/>
         </div>
-        <div className='lg:ml-30 lg:mt-20 md:mt-16 text-center lg:text-left md:text-center mb-24 max-w-[85%]'>
+        <div className='lg:ml-30 lg:mt-20 md:mt-16 text-center lg:text-left md:text-center mb-24 lg:max-w-[85%]'>
           <h1 className='text-2xl font-bold'>Güneş'in Sözlüğüne Hoş Geldiniz</h1>
           <p className='my-2'>Bu sayfada, Güneş'in ilk kelimelerini görebilirsiniz. Anlamlarını görmek için yapmanız gereken tek şey, kartın üzerine tıklamak!</p>
         </div>

@@ -47,7 +47,7 @@ export default function Galeri() {
            <div className=' mx-auto mt-14'>
         <Image src={galeri} width={200} alt='blog'/>
       </div>
-      <div className='lg:ml-30 lg:mt-20 md:mt-16 text-center lg:text-left md:text-center mb-24 max-w-[85%]'>
+      <div className='lg:ml-30 lg:mt-20 md:mt-16 text-center lg:text-left md:text-center mb-24 lg:max-w-[85%]'>
         <h1 className='text-2xl font-bold'>Güneş'in Galerisine Hoş Geldiniz</h1>
         <p className='my-2'>Bu sayfa, Güneş'in gelişimini görebileceğiniz görseller ile dolu. Fotoğraf açıklamalarını görmek için tek yapmanız gereken mouse'u fotoğrafın üzerine getirmek veya fotoğrafa tıklamak!</p>
       </div>

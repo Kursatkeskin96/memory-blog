@@ -38,7 +38,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="h-screen">
+    <div className="min-h-screen">
         {session?.user ? ( 
           <div className="mt-10 mb-10 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center justify-center max-w-6xl mx-auto">
           <div className="max-w-[90%] p-4 mx-auto">

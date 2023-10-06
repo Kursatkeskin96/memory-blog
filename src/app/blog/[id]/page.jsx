@@ -59,7 +59,7 @@ const handleDelete = async() => {
             <div className=''>
             <Image src={blogDetails?.imageUrl} width={300} height={500} alt='image'/>
             </div>
-            <div className='max-w-[60%]'>
+            <div className='lg:max-w-[60%]'>
             <div className='text-2xl rounded-md text-white font-bold text-center bg-gradient-to-r from-[#f89e21] to-[#f8d199]'>{blogDetails?.title}</div>
             <div className='pt-8'>{blogDetails?.desc}</div>
             <div className='flex justify-between items-center mt- text-xs text-gray-400 pt-6'>
