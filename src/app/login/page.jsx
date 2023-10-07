@@ -61,7 +61,7 @@ const Login = () => {
         priority={true}
       />
     </div>
-    <div className="">
+    <div className="my-5 lg:my-0 md:my-0">
       <form onSubmit={handleSubmit} className="h-[400px] lg:w-[400px] shadow-lg p-10">
         <div className="mb-6">
           <label htmlFor="username">Kullanıcı Adı</label>

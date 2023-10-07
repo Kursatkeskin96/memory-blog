@@ -147,15 +147,13 @@ const Nav = () => {
                 </div>
                 
                 <div className="mx-3 hover:border-b-2 border-[#fdb44b]">
+                <Link href='/login?callbackUrl=https%3A%2F%2Fgunesozdemir.vercel.app%2F'>
                 <button
                   type='button'
-                  key={provider.name}
-                  onClick={() => {
-                    signIn(provider.id);
-                  }}
                 >
                   Giriş Yap
                 </button>
+                </Link>
                 </div>
                 </div>
               ))}
