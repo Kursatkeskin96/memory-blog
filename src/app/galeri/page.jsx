@@ -3,6 +3,7 @@ import GalleryCard from '@/components/galleryCard/GalleryCard';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import galeri from '@/assets/Images/galeri.jpg';
+import { useSession } from 'next-auth/react';
 
 
 export async function fetchGalleries(){
@@ -29,7 +30,13 @@ export async function fetchGalleries(){
 
 export default function Galeri() {
   const [galleries, setGalleries] = useState([]);
+  const { data: session, status } = useSession();
 
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      redirect("/");
+    }
+  }, [status]);
 
 
 

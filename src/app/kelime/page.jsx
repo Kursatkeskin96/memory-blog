@@ -3,6 +3,7 @@ import WordCard from '@/components/wordCard/WordCard'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image'
 import books from '@/assets/Images/books.png'
+import { useSession } from 'next-auth/react';
 
 
 export async function fetchWords(){
@@ -20,6 +21,13 @@ export async function fetchWords(){
 
 
 export default function Kelime() {
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      redirect("/");
+    }
+  }, [status]);
   const [words, setWords] = useState([]);
 
 
