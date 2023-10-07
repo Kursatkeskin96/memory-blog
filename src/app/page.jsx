@@ -4,6 +4,7 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 import Gunes1 from '@/assets/Images/gunes1.jpeg'
 import Gunes3 from '@/assets/Images/gunes3.jpeg'
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function Page() {
@@ -76,7 +77,7 @@ export default function Page() {
           <p className="text-lg text-gray-500 lg:text-lg dark:text-gray-400">Bu internet sitesi Güneş'in internetteki anı defteri olarak tasarlanmıştır</p>
           <p className="my-5 text-lg text-gray-500 lg:text-lg dark:text-gray-400">Bu site üzerinden Güneş'e ileride okuyabileceği notlar yazabilir, ilk kelimelerini ve ne anlama geldiğini gösteren sözlüğe göz atabilir, Güneş'in doğumundan beri her ay güncellenen foto galeride gezinebilirsiniz.</p>
           <p className="mt-5 text-lg text-gray-500 lg:text-lg dark:text-gray-400">İçeriklere erişim aile üyeleri ile sınırlıdır. Devam etmek için lütfen giriş yapın.</p>
-          <button className=" w-36 bg-gradient-to-br from-[#fdb44b] to-yellow-300  hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-white mt-10 flex justify-center mx-auto max-w-[50%] text-cetner items-center p-2 rounded-md text-white" onClick={() => {signIn(provider.id);}}>Giriş Yap</button>
+        <Link href='/login?callbackUrl=https%3A%2F%2Fgunesozdemir.vercel.app%2F'> <button className=" w-36 bg-gradient-to-br from-[#fdb44b] to-yellow-300  hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-white mt-10 flex justify-center mx-auto max-w-[50%] text-cetner items-center p-2 rounded-md text-white" >Giriş Yap</button></Link>   
           </div>
           
         </div>
