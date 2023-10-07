@@ -21,4 +21,4 @@ export default withAuth(
   }
 );
 
-export const config = { matcher: ["/panel", "/blog", "/galeri", "/kelime"] };
+export const config = { matcher: ["/panel"] };
