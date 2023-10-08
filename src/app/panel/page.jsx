@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { useRouter } from 'next/navigation'; // Use 'next/router' instead of 'next/navigation'
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,6 +12,9 @@ function Panel() {
   const CLOUD_NAME = 'dqtnjtoby'
   const UPLOAD_PRESET = 'gunes_blog'
   const router = useRouter();
+  const form = useRef();
+
+  const [submitting,setSubmitting] = useState(false);
 
   
   useEffect(() => {
@@ -64,6 +67,7 @@ function Panel() {
   
       if (res.ok) {
         toast.success('Successfully registered');
+        form.current.reset();
         return;
       } else {
         toast.error('Error while registering');
@@ -102,14 +106,18 @@ function Panel() {
         body: JSON.stringify({kelime,desc,authorId: session?.user?._id})
       })
 
-      if(!res.ok){
-        throw new Error("Error occured")
+      if (res.ok) {
+        toast.success('Successfully registered');
+        form.current.reset();
+        return;
+      } else {
+        toast.error('Error while registering');
+        return;
       }
-
     } catch (error) {
-        console.log(error)
+      // Handle the error
     }
-}
+  };
 
 const [title, setTitle] = useState('')
 const [photo, setPhoto] = useState('')
@@ -167,8 +175,10 @@ const uploadImage = async () => {
     const data = await res.json()
 
     const imageUrl = data['secure_url']
-
+    form.current.reset();
+    toast.success('Successfully registered');
     return imageUrl
+  
   } catch (error) {
       console.log(error)
   }
@@ -180,7 +190,7 @@ const uploadImage = async () => {
     <h1 className='text-lg mb-4'>Kullanici Olustur</h1>
   </div>
   <div className='flex flex-col justify-center items-center'>
-    <form onSubmit={handleSubmit}>
+    <form  ref={form} onSubmit={handleSubmit}>
       <input className='rounded-md pl-2 w-52 block' type="text" placeholder='Username' onChange={(e) => setUsername(e.target.value)} />
       <input className='rounded-md pl-2 w-52 block my-4' type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} />
       <select className='rounded-md pl-2 w-52 block mx-auto' value={role} id="roles" onChange={(e) => setRole(e.target.value)} >
@@ -199,7 +209,7 @@ const uploadImage = async () => {
   <div>
   <h1 className='text-lg mb-4'>Kelime Olustur</h1>
   </div>
-      <form onSubmit={handleKelime}>
+      <form ref={form} onSubmit={handleKelime}>
         <input className='rounded-md pl-2 block w-52 ' type="text" placeholder='Kelime' onChange={(e) => setKelime(e.target.value)} />
         <input className='rounded-md pl-2 block my-4 w-52 ' type="text" placeholder='Anlami' onChange={(e) => setDesc(e.target.value)} />
         <button className='block mt-2 w-20 mx-auto bg-[#C7D3D1] text-black p-1 rounded-md border-[1px] border-white' >Olustur</button>
@@ -209,7 +219,7 @@ const uploadImage = async () => {
       <div>
       <div className='bg-[#F4F2DE] flex flex-col justify-center items-center w-[70%] mx-auto mt-10 mb-10 rounded-md shadow-lg py-4'>
       <h1 className='text-lg mb-4'>Fotograf Olustur</h1>
-                <form onSubmit={handleGallery}>
+                <form ref={form} onSubmit={handleGallery}>
                     <input className='block w-52 rounded-md pl-2' type="text" placeholder='Title...' onChange={(e) => setTitle(e.target.value)} />
                     <label className='block text-center w-32 mx-auto bg-[#E9B384] text-white rounded-md p-1 cursor-pointer my-4' htmlFor='image'>
                         Upload Image

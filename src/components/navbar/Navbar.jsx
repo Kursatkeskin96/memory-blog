@@ -115,7 +115,7 @@ const Nav = () => {
                 </div>
                 {session?.user?.role === 'admin' ? (
                 <div className="mb-2">
-                  <Link href='/admin-panel'>Panel</Link>
+                  <Link href='/panel'>Panel</Link>
                 </div>
               ) : null}
                 <div className="mb-2 p-1 text-[#fdb44b] rounded-md">
